@@ -1,7 +1,7 @@
 1. Booting and system managment tools
-  1.1 SystemV
-  1.2 SystemD
-    1.2.1 Unit types
+1.1 SystemV
+1.2 SystemD
+1.2.1 Unit types
       -service types
       -systemctl and journalctl
   1.3 Kernel modules
