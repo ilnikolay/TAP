@@ -1,11 +1,11 @@
 1. Booting and system managment tools
       1. SystemV
-      1. SystemD
+      2. SystemD
             - Unit types
             - service types
             - systemctl and journalctl
-  1.3 Kernel modules
-    - lsmod, modprobe, modinfo, rmmod, insmod
+      3. Kernel modules
+            - lsmod, modprobe, modinfo, rmmod, insmod
 2. Filesystem and Disk Managment
   2.1 /etc /proc /var /dev
   2.2 GPT and MBR
