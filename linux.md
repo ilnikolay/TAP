@@ -7,13 +7,13 @@
       3. Kernel modules
             - lsmod, modprobe, modinfo, rmmod, insmod
 2. Filesystem and Disk Managment
-  2.1 /etc /proc /var /dev
-  2.2 GPT and MBR
-  2.3 ext4, xfs, tmpfs, ramfs and LVM
-  2.4 file attributes
-  2.5 Commands and tools
-    -fdisk, parted, mkfs, mount, lsblk, df, du, tree, fuser. TO DO: LVM
-    -chmod, chown, chgrp, umask
+  1. /etc /proc /var /dev
+  2. GPT and MBR
+  3. ext4, xfs, tmpfs, ramfs and LVM
+  4. file attributes
+  5. Commands and tools
+    - fdisk, parted, mkfs, mount, lsblk, df, du, tree, fuser. TO DO: LVM
+    - chmod, chown, chgrp, umask
 3. Package Managment - https://github.com/ilnikolay/Linux-package-managment/blob/main/Package%20Managment.md
 4. Processes and memory
   4.1 background and foreground
