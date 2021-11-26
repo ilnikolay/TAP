@@ -1,0 +1,1 @@
+0 */4 * * * /bin/sh /home/student/Documents/lab02/logcleaner.sh
