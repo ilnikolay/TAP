@@ -1,0 +1,8 @@
+[Unit]
+Description=Test target for lab01
+Requires=graphical.target
+Wants=helloworld.service
+After=systemd-update-utmp-runlevel.service
+
+[Install]
+WantedBy=graphical.target
