@@ -1,0 +1,9 @@
+student@pop-os:~/Documents/lab05$ ls -la
+total 39076
+drwxrwxr-x 1 student student      150 Nov 21 18:43 .
+drwxr-xr-x 1 student student       50 Nov 21 16:13 ..
+-rw-rw-r-- 1 student student 10000000 Nov 21 18:42 10MB-42-57.file
+-rw-rw-r-- 1 student student 10000000 Nov 21 18:42 10MB-42-59.file
+-rw-rw-r-- 1 student student 10000000 Nov 21 18:43 10MB-43-01.file
+-rw-rw-r-- 1 student student 10000000 Nov 21 18:43 10MB-43-05.file
+-rwxrwxr-x 1 student student      187 Nov 21 18:20 create_files.sh
