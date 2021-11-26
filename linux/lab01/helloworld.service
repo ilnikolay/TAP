@@ -1,0 +1,9 @@
+[Unit]
+Description=Test service for lab01
+After=graphical.target systemd-update-utmp-runlevel.service
+
+[Service]
+ExecStart=/home/student/Documents/lab01/helloworld.sh
+
+[Install]
+WantedBy=helloworld.target
