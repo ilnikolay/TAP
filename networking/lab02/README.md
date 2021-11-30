@@ -7,7 +7,7 @@ server {
 ```
 
 2. In global config file of nginx added following, also here we are listening on port 8080:
-	```
+```
 	location / {
 		proxy_pass http://127.0.0.1:80;
 	}
