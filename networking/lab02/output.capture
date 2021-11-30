@@ -1,0 +1,38 @@
+[ec2-user@ip-172-31-47-191 nginx]$ sudo tcpdump -i any -vv port 80
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 262144 bytes
+15:45:46.719707 IP (tos 0x0, ttl 64, id 32035, offset 0, flags [DF], proto TCP (6), length 60)
+    localhost.44084 > localhost.http: Flags [S], cksum 0xfe30 (incorrect -> 0xf4fb), seq 1447757618, win 65495, options [mss 65495,sackOK,TS val 3307965400 ecr 0,nop,wscale 7], length 0
+15:45:46.719715 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    localhost.http > localhost.44084: Flags [S.], cksum 0xfe30 (incorrect -> 0xa3f1), seq 3291823051, ack 1447757619, win 65483, options [mss 65495,sackOK,TS val 3307965400 ecr 3307965400,nop,wscale 7], length 0
+15:45:46.719723 IP (tos 0x0, ttl 64, id 32036, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.44084 > localhost.http: Flags [.], cksum 0xfe28 (incorrect -> 0xcaad), seq 1, ack 1, win 512, options [nop,nop,TS val 3307965400 ecr 3307965400], length 0
+15:45:46.719747 IP (tos 0x0, ttl 64, id 32037, offset 0, flags [DF], proto TCP (6), length 568)
+    localhost.44084 > localhost.http: Flags [P.], cksum 0x002d (incorrect -> 0xc8a6), seq 1:517, ack 1, win 512, options [nop,nop,TS val 3307965400 ecr 3307965400], length 516: HTTP, length: 516
+	GET / HTTP/1.0
+	Host: 127.0.0.1
+	Connection: close
+	Cache-Control: max-age=0
+	Upgrade-Insecure-Requests: 1
+	User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36
+	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Accept-Encoding: gzip, deflate
+	Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+	If-Modified-Since: Tue, 30 Nov 2021 13:19:29 GMT
+	
+15:45:46.719750 IP (tos 0x0, ttl 64, id 27782, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.http > localhost.44084: Flags [.], cksum 0xfe28 (incorrect -> 0xc8ad), seq 1, ack 517, win 508, options [nop,nop,TS val 3307965400 ecr 3307965400], length 0
+15:45:46.719806 IP (tos 0x0, ttl 64, id 27783, offset 0, flags [DF], proto TCP (6), length 227)
+    localhost.http > localhost.44084: Flags [P.], cksum 0xfed7 (incorrect -> 0xf346), seq 1:176, ack 517, win 512, options [nop,nop,TS val 3307965401 ecr 3307965400], length 175: HTTP, length: 175
+	HTTP/1.1 304 Not Modified
+	Server: nginx/1.20.0
+	Date: Tue, 30 Nov 2021 15:45:46 GMT
+	Last-Modified: Tue, 30 Nov 2021 13:19:29 GMT
+	Connection: close
+	ETag: "61a624e1-106"
+	
+15:45:46.719810 IP (tos 0x0, ttl 64, id 32038, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.44084 > localhost.http: Flags [.], cksum 0xfe28 (incorrect -> 0xc7f9), seq 517, ack 176, win 511, options [nop,nop,TS val 3307965401 ecr 3307965401], length 0
+^C
+7 packets captured
+20 packets received by filter
+5 packets dropped by kernel
