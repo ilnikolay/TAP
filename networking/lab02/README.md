@@ -1,8 +1,8 @@
 1. Created new server in /etc/nginx/conf.d/server2.conf with following config
-server {
+```server {
 	listen 80;
 	root /home/ec2-user/websrv;
-}
+}```
 
 2. In global config file of nginx added following, also here we are listening on port 8080:
 	location / {
