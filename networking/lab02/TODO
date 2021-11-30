@@ -1,0 +1,45 @@
+# Config for both servers in separate conf file in /etc/nginx/nginx.d/
+
+server {
+  listen  80;
+  index   index.html;
+  
+  location / {
+  root    /home/ec2-user/websrv;
+  }
+}
+
+server {
+  listen  81;
+  index   index.html;
+  
+  location / {
+  root    /home/ec2-user/websrv;
+  }
+}
+
+# Config for reverse proxy in separate conf file in /etc/nginx/nginx.d/
+
+server {
+  listen  8080;
+  server_name _;
+  
+  location / {
+    proxy_pass http://127.0.0.1:80;
+  }
+}
+
+# Config for LB, same as reverse proxy, but add upstream
+upstream backend_servers {
+  server 127.0.0.1:80;
+  server 127.0.0.1:81;
+}
+
+server {
+  listen  8080;
+  server_name _;
+  
+  location / {
+    proxy_pass http://backend_servers/;
+  }
+}
