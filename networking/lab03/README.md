@@ -7,7 +7,7 @@ server {
   root    /home/ec2-user/websrv1/;
 }
 ```
-2. Will reuse the proxy.conf from LAB02 and will add load balancing functionality to it:
+2. Reused the proxy.conf from LAB02 and added load balancing functionality to it:
 ```
 upstream backendservers {
 	server 127.0.0.1:80;
@@ -23,7 +23,7 @@ server {
   }
 }
 ```
-3. There is tcpdump capture log.
+3. Part from tcpdump capture log.
 ```
 tcpbump -vv -i lo
 
