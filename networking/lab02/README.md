@@ -24,3 +24,4 @@ server {
 sudo tcpdump -i any -vv port 80
 ```
 4. Also there is a screenshot from netstat.
+![netstat](https://github.com/ilnikolay/TAP/blob/main/networking/lab02/Screenshot%202021-12-01%20at%2011.48.19.png?raw=true "netstat")
