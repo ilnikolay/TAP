@@ -1,0 +1,64 @@
+tcpdump: listening on lo, link-type EN10MB (Ethernet), capture size 262144 bytes
+11:02:31.863015 IP (tos 0x0, ttl 64, id 22406, offset 0, flags [DF], proto TCP (6), length 60)
+    localhost.53482 > localhost.http: Flags [S], cksum 0xfe30 (incorrect -> 0xb514), seq 1993793290, win 65495, options [mss 65495,sackOK,TS val 2849032704 ecr 0,nop,wscale 7], length 0
+11:02:31.863023 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    localhost.http > localhost.53482: Flags [S.], cksum 0xfe30 (incorrect -> 0x2139), seq 3623438347, ack 1993793291, win 65483, options [mss 65495,sackOK,TS val 2849032704 ecr 2849032704,nop,wscale 7], length 0
+11:02:31.863031 IP (tos 0x0, ttl 64, id 22407, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.53482 > localhost.http: Flags [.], cksum 0xfe28 (incorrect -> 0x47f5), seq 1, ack 1, win 512, options [nop,nop,TS val 2849032704 ecr 2849032704], length 0
+11:02:31.863056 IP (tos 0x0, ttl 64, id 22408, offset 0, flags [DF], proto TCP (6), length 603)
+    localhost.53482 > localhost.http: Flags [P.], cksum 0x0050 (incorrect -> 0x4beb), seq 1:552, ack 1, win 512, options [nop,nop,TS val 2849032704 ecr 2849032704], length 551: HTTP, length: 551
+	GET / HTTP/1.0
+	Host: backendservers
+	Connection: close
+	Cache-Control: max-age=0
+	Upgrade-Insecure-Requests: 1
+	User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36
+	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Accept-Encoding: gzip, deflate
+	Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+	If-None-Match: "61a747ad-23"
+	If-Modified-Since: Wed, 01 Dec 2021 10:00:13 GMT
+	
+11:02:31.863059 IP (tos 0x0, ttl 64, id 61235, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.http > localhost.53482: Flags [.], cksum 0xfe28 (incorrect -> 0x45d2), seq 1, ack 552, win 508, options [nop,nop,TS val 2849032704 ecr 2849032704], length 0
+11:02:31.863177 IP (tos 0x0, ttl 64, id 61236, offset 0, flags [DF], proto TCP (6), length 545)
+    localhost.http > localhost.53482: Flags [FP.], cksum 0x0016 (incorrect -> 0xa7cb), seq 1:494, ack 552, win 512, options [nop,nop,TS val 2849032704 ecr 2849032704], length 493: HTTP, length: 493
+	HTTP/1.1 200 OK
+	Server: nginx/1.20.0
+	Date: Wed, 01 Dec 2021 11:02:31 GMT
+	Content-Type: text/html
+	Content-Length: 260
+	Last-Modified: Wed, 01 Dec 2021 09:17:30 GMT
+	Connection: close
+	ETag: "61a73daa-104"
+	Accept-Ranges: bytes
+	
+	<html>
+	<body>
+	link/ether: 0a:1e:2a:99:45:0a
+	inet: 172.31.10.24/20<br>
+	default gateway: 172.31.0.1<br>
+	Hosts: 4094<br>
+	Webserver ipv4 port: tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      573/nginx: master p <br>
+	</body>
+	</html>
+11:02:31.863213 IP (tos 0x0, ttl 64, id 22409, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.53482 > localhost.http: Flags [F.], cksum 0xfe28 (incorrect -> 0x43df), seq 552, ack 495, win 512, options [nop,nop,TS val 2849032704 ecr 2849032704], length 0
+11:02:31.863222 IP (tos 0x0, ttl 64, id 61237, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.http > localhost.53482: Flags [.], cksum 0xfe28 (incorrect -> 0x43df), seq 495, ack 553, win 512, options [nop,nop,TS val 2849032704 ecr 2849032704], length 0
+11:02:34.832179 IP (tos 0x0, ttl 64, id 5145, offset 0, flags [DF], proto TCP (6), length 60)
+    localhost.49920 > localhost.81: Flags [S], cksum 0xfe30 (incorrect -> 0xb9e6), seq 133516138, win 65495, options [mss 65495,sackOK,TS val 2849035673 ecr 0,nop,wscale 7], length 0
+11:02:34.832189 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    localhost.81 > localhost.49920: Flags [S.], cksum 0xfe30 (incorrect -> 0x2344), seq 4081263599, ack 133516139, win 65483, options [mss 65495,sackOK,TS val 2849035673 ecr 2849035673,nop,wscale 7], length 0
+11:02:34.832198 IP (tos 0x0, ttl 64, id 5146, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.49920 > localhost.81: Flags [.], cksum 0xfe28 (incorrect -> 0x4a00), seq 1, ack 1, win 512, options [nop,nop,TS val 2849035673 ecr 2849035673], length 0
+11:02:34.832226 IP (tos 0x0, ttl 64, id 5147, offset 0, flags [DF], proto TCP (6), length 604)
+    localhost.49920 > localhost.81: Flags [P.], cksum 0x0051 (incorrect -> 0x5486), seq 1:553, ack 1, win 512, options [nop,nop,TS val 2849035673 ecr 2849035673], length 552
+11:02:34.832229 IP (tos 0x0, ttl 64, id 49219, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.81 > localhost.49920: Flags [.], cksum 0xfe28 (incorrect -> 0x47dc), seq 1, ack 553, win 508, options [nop,nop,TS val 2849035673 ecr 2849035673], length 0
+11:02:34.832349 IP (tos 0x0, ttl 64, id 49220, offset 0, flags [DF], proto TCP (6), length 318)
+    localhost.81 > localhost.49920: Flags [FP.], cksum 0xff32 (incorrect -> 0xaa34), seq 1:267, ack 553, win 512, options [nop,nop,TS val 2849035674 ecr 2849035673], length 266
+11:02:34.832386 IP (tos 0x0, ttl 64, id 5148, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.49920 > localhost.81: Flags [F.], cksum 0xfe28 (incorrect -> 0x46ca), seq 553, ack 268, win 512, options [nop,nop,TS val 2849035674 ecr 2849035674], length 0
+11:02:34.832394 IP (tos 0x0, ttl 64, id 49221, offset 0, flags [DF], proto TCP (6), length 52)
+    localhost.81 > localhost.49920: Flags [.], cksum 0xfe28 (incorrect -> 0x46ca), seq 268, ack 554, win 512, options [nop,nop,TS val 2849035674 ecr 2849035674], length 0
