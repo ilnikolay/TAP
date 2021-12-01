@@ -1,4 +1,4 @@
-1. Created two network namespaces with ip addresses 192.168.100.1 and 192.168.200.1 in /28 networks:
+1. Created two network namespaces and veth interfaces with ip addresses 192.168.100.1 and 192.168.200.1 in /28 networks:
 
 #nsA namespace:
 ```
@@ -34,7 +34,7 @@
        valid_lft forever preferred_lft forever
 ```
 
-2. Created veth interfaces and links on default namespace connecting to the two previously created namespaces. Assigned IP address to these two veth interfaces and made them defaulth gateways.
+2. Assigned IP addresses to the two global/default veth interfaces and made them defaulth gateways.
 3. Enabled ip forwarding on the linux machine:
 ``` 
 sysctl -w net.ipv4.ip_forward=1
