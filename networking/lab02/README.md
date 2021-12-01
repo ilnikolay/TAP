@@ -1,18 +1,26 @@
-1. Created new server in /etc/nginx/conf.d/server2.conf with following config
+1. Changed the conf from LAB01 /etc/nginx/conf.d/server1.conf with following config
 ```
 server {
-	listen 80;
-	root /home/ec2-user/websrv;
+  listen  127.0.0.1:80;
+  index   index.html;
+  
+  root    /home/ec2-user/websrv/;
 }
 ```
 
-2. In global config file of nginx added following, also here we are listening on port 8080:
+2. Then created new proxy.conf file in /etc/nginx/conf.d/ with following config:
 ```
-	location / {
-		proxy_pass http://127.0.0.1:80;
-	}
+server {
+  listen 172.31.10.24:8080;
+  server_name _;
+  
+  location / {
+    proxy_pass http://127.0.0.1:80;
+  }
+}
 ```
 3. Used tcpdump to capture traffic on port 80 with any interface, you can check whats captured in the output file.
 ```
 sudo tcpdump -i any -vv port 80
 ```
+4. Also there is a screenshot from netstat.
