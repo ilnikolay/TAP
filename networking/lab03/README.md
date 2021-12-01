@@ -23,3 +23,6 @@ server {
   }
 }
 ```
+3. There is tcpdump capture log.
+4. Here is a netstat:
+![netstat](https://github.com/ilnikolay/TAP/blob/main/networking/lab03/Screenshot%202021-12-01%20at%2012.58.43.png?raw=true "netstat")
