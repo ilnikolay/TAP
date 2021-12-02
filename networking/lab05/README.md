@@ -58,7 +58,7 @@ sudo ip netns exec nsB python3 -m http.server 81 --directory /home/ec2-user/webs
 
 ## Enable forwarding and non local IPs able to be bind in NGINX:
 ```
-sysctl -w net.ipv4.ip_forward=1
+sudo sysctl -w net.ipv4.ip_forward=1
 sudo sysctl -w net.ipv4.ip_nonlocal_bind=1
 ```
 
