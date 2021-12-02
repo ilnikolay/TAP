@@ -56,10 +56,9 @@ sudo ip netns exec nsB python3 -m http.server 81 --directory /home/ec2-user/webs
 
 # 3. NGINX configuration:
 
-## Enable forwarding and non local IPs able to be bind in NGINX:
+## Enable forwarding:
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
-sudo sysctl -w net.ipv4.ip_nonlocal_bind=1
 ```
 
 ## Create the proxy and load balancer using NGINX in default namespace. We no longer can use TCP 8080 port, because we will use it for the VPN.
