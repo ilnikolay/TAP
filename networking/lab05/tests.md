@@ -1,4 +1,4 @@
-# 1. My Local computer ip add. and you can see VPN interface which is tun0:
+## 1. My Local computer ip add. and you can see VPN interface which is tun0:
 ```
 student@pop-os:~$ ip addr
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -17,7 +17,7 @@ student@pop-os:~$ ip addr
        valid_lft forever preferred_lft forever
 ```
 
-# 2. This is test from my local PC towards the VM local IP on port 80 where the NGINX is configured as a load balancer and proxy. All is passign through the VPN:
+## 2. This is test from my local PC towards the VM local IP on port 80 where the NGINX is configured as a load balancer and proxy. All is passign through the VPN:
 
 ```
 student@pop-os:~$ curl 172.31.10.139:80
@@ -35,9 +35,9 @@ student@pop-os:~$ curl 172.31.10.139:80
 </html>
 ```
 
-# 3. Here is a ping and traceroute test from my local PC towards the VM network namespaces through the VPN:
+## 3. Here is a ping and traceroute test from my local PC towards the VM network namespaces through the VPN:
 
-## Pinging nsA
+### Pinging nsA
 ```
 student@pop-os:~$ ping 192.168.100.2
 PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
@@ -49,7 +49,7 @@ PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 31.232/32.928/35.123/1.627 ms
 ```
-## Pinging nsB
+### Pinging nsB
 ```
 student@pop-os:~$ ping 192.168.200.2
 PING 192.168.200.2 (192.168.200.2) 56(84) bytes of data.
@@ -61,7 +61,7 @@ PING 192.168.200.2 (192.168.200.2) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 30.870/32.331/34.359/1.479 ms
 ```
-## Pinging VM local IP
+### Pinging VM local IP
 ```
 student@pop-os:~$ ping 172.31.10.139
 PING 172.31.10.139 (172.31.10.139) 56(84) bytes of data.
@@ -75,7 +75,7 @@ PING 172.31.10.139 (172.31.10.139) 56(84) bytes of data.
 rtt min/avg/max/mdev = 31.121/32.755/33.738/1.044 ms
 ```
 
-## Traceroutes:
+### Traceroutes:
 ```
 student@pop-os:~$ traceroute 192.168.100.2
 traceroute to 192.168.100.2 (192.168.100.2), 30 hops max, 60 byte packets
