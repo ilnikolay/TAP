@@ -4,19 +4,19 @@ Create both namespaces:
 sudo ip netns add nsA
 sudo ip netns add nsB
 ```
-<p>&nbsp;</p>
+
 ```
 Create veth links:
 sudo ip link add eth0-A type veth peer name veth-A
 sudo ip link add eth0-B type veth peer name veth-B
 ```
-<p>&nbsp;</p>
+
 ```
 Set one end of the veth links to newly created namespaces:
 sudo ip link set veth-A netns nsA
 sudo ip link set veth-B netns nsB
 ```
-<p>&nbsp;</p>
+
 ```
 Set the IP addresses for all veth interfaces in nsA, nsB and default NS:
 sudo ip address add 192.168.100.1/28 dev eth0-A
@@ -25,7 +25,7 @@ sudo ip netns exec nsA ip address add 192.168.100.2/28 dev veth-A
 sudo ip address add 192.168.200.1/28 dev eth0-B
 sudo ip netns exec nsB ip address add 192.168.200.2/28 dev veth-B
 ```
-<p>&nbsp;</p>
+
 ```
 Enable all interfaces:
 sudo ip link set eth0-A up
@@ -34,15 +34,15 @@ sudo ip netns exec nsA ip link set dev veth-A up
 sudo ip link set eth0-B up
 sudo ip netns exec nsB ip link set dev veth-B up
 ```
-<p>&nbsp;</p>
+
 ```
 Add default gateways to nsA and nsB:
 sudo ip netns exec nsA ip route add default via 192.168.100.1 dev veth-A
 sudo ip netns exec nsB ip route add default via 192.168.200.1 dev veth-B
 ```
-<p>&nbsp;</p>
+
 # 2. Create two servers in nsA and nsB using python3:
-<p>&nbsp;</p>
+
 ```
 sudo ip netns exec nsA python3 -m http.server 80 --directory /home/ec2-user/websrv1/
 sudo ip netns exec nsB python3 -m http.server 81 --directory /home/ec2-user/websrv2/
