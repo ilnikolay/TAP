@@ -43,3 +43,5 @@
 ```
 
 ## From netstat you can see NGINX listening on port 172.31.10.139:80 and openVPN listening on 8080
+
+![netstat](https://github.com/ilnikolay/TAP/blob/main/networking/lab05/Screenshot%202021-12-02%20at%2017.39.20.png?raw=true "netstat")
