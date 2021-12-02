@@ -50,8 +50,8 @@ sudo ip netns exec nsB ip route add default via 192.168.200.1 dev veth-B
 # 2. Create two servers in nsA and nsB using python3:
 
 ```
-sudo ip netns exec nsA python3 -m http.server 80 --directory /home/ec2-user/websrv1/
-sudo ip netns exec nsB python3 -m http.server 81 --directory /home/ec2-user/websrv2/
+sudo ip netns exec nsA python3 -m http.server 80 --directory /home/ec2-user/websrv1/ --bind 192.168.100.2
+sudo ip netns exec nsB python3 -m http.server 81 --directory /home/ec2-user/websrv2/ --bind 192.168.200.2
 ```
 
 # 3. NGINX configuration:
