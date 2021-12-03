@@ -17,7 +17,7 @@ student@pop-os:~$ ip addr
        valid_lft forever preferred_lft forever
 ```
 
-## 2. This is test from my local PC towards the VM local IP on port 80 where the NGINX is configured as a load balancer and proxy. All is passign through the VPN:
+## 2. This is test from my local PC towards the VM local IP on port 8080 where the NGINX is configured as a load balancer and proxy. All is passign through the VPN:
 
 ```
 student@pop-os:~$ curl 172.31.10.139:8080
