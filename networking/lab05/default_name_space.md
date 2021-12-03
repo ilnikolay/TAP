@@ -42,6 +42,7 @@
        valid_lft forever preferred_lft forever
 ```
 
-## From netstat you can see NGINX listening on port 172.31.10.139:80 and openVPN listening on 8080
-
-![netstat](https://github.com/ilnikolay/TAP/blob/main/networking/lab05/Screenshot%202021-12-02%20at%2017.39.20.png?raw=true "netstat")
+## From netstat you can see NGINX on port TCP 172.31.10.139:8080 and openVPN on UDP 1194
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 172.31.10.139:8080      0.0.0.0:*               LISTEN      12170/nginx: master 
+udp        0      0 172.31.10.139:1194      0.0.0.0:*                           12790/openvpn
