@@ -20,13 +20,13 @@ student@pop-os:~$ ip addr
 ## 2. This is test from my local PC towards the VM local IP on port 80 where the NGINX is configured as a load balancer and proxy. All is passign through the VPN:
 
 ```
-student@pop-os:~$ curl 172.31.10.139:80
+student@pop-os:~$ curl 172.31.10.139:8080
 <html>
 <body>
 	TEST1
 </body>
 </html>
-student@pop-os:~$ curl 172.31.10.139:80
+student@pop-os:~$ curl 172.31.10.139:8080
 <html>
 <body>
 	TEST2
