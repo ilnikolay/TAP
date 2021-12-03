@@ -43,6 +43,8 @@
 ```
 
 ## From netstat you can see NGINX on port TCP 172.31.10.139:8080 and openVPN on UDP 1194
+```
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
 tcp        0      0 172.31.10.139:8080      0.0.0.0:*               LISTEN      12170/nginx: master 
 udp        0      0 172.31.10.139:1194      0.0.0.0:*                           12790/openvpn
+```
