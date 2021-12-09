@@ -40,11 +40,11 @@ https://hub.docker.com/repository/docker/ilniko/hello
 #!/usr/bin/env bash
 #set -x
 
-`docker run -d alpine:3 > /dev/null`
+docker run -d alpine:3
 if [[ $? -eq 0 ]]; then
   dockid=`docker ps -a | grep alpine | awk '{print $1}'`
   echo "Container ID is: $dockid"
   echo "Removing cointainer with ID: $dockid"
-  `docker rm $dockid > /dev/null`
+  docker rm $dockid
 fi
 ```
