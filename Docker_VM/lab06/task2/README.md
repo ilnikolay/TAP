@@ -37,4 +37,4 @@ services:
     depends_on:
       - redis
 ```
-![App](Screenshot 2021-12-09 at 17.15.06.png)
+![App](https://github.com/ilnikolay/TAP/blob/main/Docker_VM/lab06/task2/Screenshot%202021-12-09%20at%2017.15.06.png)
