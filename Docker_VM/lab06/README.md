@@ -8,15 +8,12 @@ for i in {1..2}; do
 done
 
 # Create containers
-for j in {1..3}; do
-  docker run -dit --name alpine$j alpine 
-done
+docker run -dit --name alpine1 --net=net1 alpine 
+docker run -dit --name alpine2 --net=net1 alpine 
+docker run -dit --name alpine3 --net=net2 alpine 
 
 # Add containers to different networks
-docker network connect net1 alpine1
-docker network connect net1 alpine2
 docker network connect net2 alpine2
-docker network connect net2 alpine3
 
 # Performing pings
 echo "Ping from alpine1 to alpine2"
