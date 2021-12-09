@@ -1,5 +1,5 @@
 ## 1. Script from task 1:
-```
+```bash
 #!/usr/bin/env bash
 
 # Create networks
