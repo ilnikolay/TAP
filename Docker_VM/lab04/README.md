@@ -1,5 +1,5 @@
 ### Task 1 Dockerfile:
-```
+```bash
 FROM python:3
 
 WORKDIR /usr/src/app
@@ -14,7 +14,7 @@ CMD ["hello.py"]
 ### Task 2 and 4 Dockerfile:
 
 #### docker build --build-arg username=niki --build-arg group=test -t test_arg:niki.test .
-```
+```bash
 FROM alpine:3
 
 ARG username
@@ -36,15 +36,13 @@ https://hub.docker.com/repository/docker/ilniko/hello
 ```
 
 ### Task 5
-```
+```bash
 #!/usr/bin/env bash
 #set -x
 
-docker run -d alpine:3
-if [[ $? -eq 0 ]]; then
-  dockid=`docker ps -a | grep alpine | awk '{print $1}'`
-  echo "Container ID is: $dockid"
-  echo "Removing cointainer with ID: $dockid"
-  docker rm $dockid
-fi
+docker run --name alpine_lab -d alpine:3
+dockid=`docker ps -aqf "name=alpine_lab"`
+echo "Container ID is: $dockid"
+echo "Removing cointainer with ID: $dockid"
+docker rm $dockid
 ```
