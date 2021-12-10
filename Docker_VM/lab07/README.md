@@ -21,6 +21,9 @@ CMD ["hello"]
 docker buildx build --push --platform linux/arm/v7,linux/arm64,linux/amd64 -t ilniko/multiarch-hello .
 ```
 ### 3. Create our private registry in docker-reg
+```
+docker compose up
+```
 ### 4. Tag with our private registry prefix
 ```
 docker tag ilniko/multiarch-hello localhost:5005/multiarch-hello:latest
