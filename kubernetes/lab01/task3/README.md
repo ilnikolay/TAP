@@ -3,6 +3,10 @@
 kubectl create deployment nginx-lab --image=nginx:stable --port=80
 deployment.apps/nginx-lab created
 ```
+### If we want to reach to the server from our local host, we can forward pod port 80 to localhost 8000
+```bash
+kubectl port-forward pods/nginx-lab-f6bc678c8-jsqq9 8000:80
+```
 ## 2. Create a pod from image nginx:stable on port 80 using declerative configuration file:
 ### First we create the YAML file with the config:
 ```yaml
