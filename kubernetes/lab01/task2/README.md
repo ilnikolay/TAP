@@ -38,9 +38,17 @@ Events:            <none>
 
 ## 3. List all pods in the cluster:
 ```bash
-kubectl get pods
-NAME                        READY   STATUS    RESTARTS   AGE
-nginx-lab-f6bc678c8-jsqq9   1/1     Running   0          95s
+kubectl get pods -A
+NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+default       nginx-dpfile-6998699cfc-5tvmt      1/1     Running   0             13m
+default       nginx-lab-f6bc678c8-jsqq9          1/1     Running   0             60m
+kube-system   coredns-78fcd69978-rzvfq           1/1     Running   0             86m
+kube-system   etcd-minikube                      1/1     Running   0             86m
+kube-system   kube-apiserver-minikube            1/1     Running   0             86m
+kube-system   kube-controller-manager-minikube   1/1     Running   0             86m
+kube-system   kube-proxy-t472w                   1/1     Running   0             86m
+kube-system   kube-scheduler-minikube            1/1     Running   0             86m
+kube-system   storage-provisioner                1/1     Running   1 (85m ago)   86m
 ```
 ### View detailed information on pods:
 ```bash
