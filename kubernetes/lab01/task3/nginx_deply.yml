@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-dpfile
+  name: nginx-dpfile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-dpfile
+  template:
+    metadata:
+      labels:
+        app: nginx-dpfile
+    spec:
+      containers:
+      - image: nginx:stable
+        name: nginx
+        ports:
+        - containerPort: 80
+          protocol: TCP
