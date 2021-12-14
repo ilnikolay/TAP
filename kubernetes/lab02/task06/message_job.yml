@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: echojob
+spec:
+  completions: 5
+  template:
+    metadata:
+      name: echojob
+    spec:
+      containers:
+      - name: echojob
+        image: busybox
+        command: ["/bin/sh", "-c"]
+        args: ["for i in 1 2 3; do echo Random messages!!!; sleep 1; done"]
+      restartPolicy: OnFailure
