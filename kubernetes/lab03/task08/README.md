@@ -61,7 +61,7 @@ Containers:
     Requests:
       memory:     100Mi
 ```
-## 5. With top we can see CPU and memory for the POD:
+## 5. With top we can see CPU and memory usage for the POD:
 ```bash
 kubectl top pod memstress-5f9d744d7-wh5px --namespace=mem-default 
 W1215 14:23:57.867376    3302 top_pod.go:140] Using json format to get metrics. Next release will switch to protocol-buffers, switch early by passing --use-protocol-buffers flag
