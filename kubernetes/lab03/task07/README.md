@@ -1,5 +1,5 @@
 # 1. Using declarative approach:
-## 1. Deployment YAM file:
+## 1. Deployment YAML file:
 ```YAML
 apiVersion: apps/v1
 kind: Deployment
