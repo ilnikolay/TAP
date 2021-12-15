@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpustress
+  namespace: cpu-default
+spec:
+  selector:
+    matchLabels:
+      app: cputest
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cputest
+    spec:
+      containers:
+      - name: vishstress
+        image: vish/stress
+        resources:
+          requests:
+            cpu: 100
+          limits:
+            cpu: 100
+        args: ["-cpus", "2"]
