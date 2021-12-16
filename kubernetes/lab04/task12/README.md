@@ -70,7 +70,7 @@ NAME                                  DESIRED   CURRENT   READY   AGE
 replicaset.apps/frontend-57b957cb78   1         1         1       55s
 ```
 ## 8. Open browser and go to 127.0.0.1:8080:
-
+![Original template](https://github.com/ilnikolay/TAP/blob/main/kubernetes/lab04/task12/Original_site.png?raw=true "Original template")
 
 ## 9. We attach to the container:
 ```bash
@@ -78,3 +78,4 @@ kubectl exec -it frontend-57b957cb78-pcsp9 /bin/sh
 / # 
 ```
 ## 10. Change the index.html in our container /usr/share/nginx/html:
+![Edited index](https://github.com/ilnikolay/TAP/blob/main/kubernetes/lab04/task12/edited_site.png "edited index")
