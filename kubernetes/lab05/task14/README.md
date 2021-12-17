@@ -119,16 +119,16 @@ auto.cnf  ib_logfile0  ib_logfile1  ibdata1  mysql  performance_schema
 ```
 ## 7. Verify that ClusterIP service and DNS are working.
     - ### First we create new POD with alpine linux:
-    ```bash
-    kubectl get pods
-    NAME                            READY   STATUS    RESTARTS   AGE
-    alpine-5d888845dd-zstmw         1/1     Running   0          9m5s
-    mysql-deploy-7d6cc58d6f-559mx   1/1     Running   0          16m
-    ```
+```bash
+kubectl get pods
+NAME                            READY   STATUS    RESTARTS   AGE
+alpine-5d888845dd-zstmw         1/1     Running   0          9m5s
+mysql-deploy-7d6cc58d6f-559mx   1/1     Running   0          16m
+```
     - ### Attach to the alpine linux and use netcat to check if port 3306 on mysql-srv is open:
-    ```bash
-    kubectl exec -it alpine-5d888845dd-zstmw -- sh
-    / # nc -vz mysql-srv 3306
-    mysql-srv (10.100.89.234:3306) open
-    ```
-    ### As you can see in resolved the mysql-srv to 10.100.89.234 which is the correct IP for the ClusterIP service.
+```bash
+kubectl exec -it alpine-5d888845dd-zstmw -- sh
+/ # nc -vz mysql-srv 3306
+mysql-srv (10.100.89.234:3306) open
+```
+   ### As you can see it resolved the mysql-srv to 10.100.89.234 which is the correct IP for the ClusterIP service.
