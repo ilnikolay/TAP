@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitnamikubectl
+spec:
+  selector:
+    matchLabels:
+      app: podkubectl
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: podkubectl
+    spec:
+      containers:
+      - name: bitnami
+        image: bitnami/kubectl
+        command: ["/bin/sleep", "1d"]
+      serviceAccountName: test-user
