@@ -65,3 +65,10 @@ bitnamikubectl-6c4d7d44cd-flsww   1/1     Running   0          46s
 I have no name!@bitnamikubectl-6c4d7d44cd-flsww:/$ kubectl get deployments
 Error from server (Forbidden): deployments.apps is forbidden: User "system:serviceaccount:default:test-user" cannot list resource "deployments" in API group "apps" in the namespace "default"
 ```
+## 7. Check the auth can-i inside the POD:
+```bash
+I have no name!@bitnamikubectl-6c4d7d44cd-flsww:/$ kubectl auth can-i delete pods --namespace=default
+yes
+I have no name!@bitnamikubectl-6c4d7d44cd-flsww:/$ kubectl auth can-i delete deployment --namespace=default
+no
+```
