@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinger-deploy
+spec:
+  selector:
+    matchLabels:
+      app: pinger
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pinger
+    spec:
+      volumes:
+        - name: configmap-volume
+          configMap:
+            name: configmap-pinger
+      containers:
+        - name: pingerapp
+          image: ilniko/pinger
+          volumeMounts:
+            - name: configmap-volume
+              mountPath: /etc/pinger
