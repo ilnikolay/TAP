@@ -1,4 +1,4 @@
-## Bash script thet pings 5 times env variable MY_HOST
+## Bash script that pings 5 times env variable MY_HOST
 ```bash
 #!/usr/bin/env bash
 while true; do
