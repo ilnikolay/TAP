@@ -1,0 +1,7 @@
+image:
+  repository: nginx
+  tag: latest
+
+namespace: test
+var1: 5
+var2: 6

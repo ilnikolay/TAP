@@ -1,0 +1,7 @@
+# Default values for task17chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: redis
+  tag: latest
