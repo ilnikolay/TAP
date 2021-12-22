@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx-equal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-eqaul
+  template:
+    metadata:
+      labels:
+        app: nginx-eqaul
+    spec:
+      containers:
+      - image: nginx
+        name: nginx-eqaul
+      tolerations:
+      - key: ssd
+        value: "true"
+        operator: Equal
+        effect: "NoSchedule"

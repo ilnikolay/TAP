@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx-exist
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-exist
+  template:
+    metadata:
+      labels:
+        app: nginx-exist
+    spec:
+      containers:
+      - image: nginx
+        name: nginx-exist
+      tolerations:
+      - key: ssd
+        operator: Exists
+        effect: "NoSchedule"
