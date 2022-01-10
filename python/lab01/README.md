@@ -38,6 +38,7 @@ salary_change(50,'Emma',sample_dict)
 print(sample_dict)
 ```
 ## 3. Write a program to print the following start pattern using the for loop:
+```
 *
 * *
 * * *
@@ -47,6 +48,7 @@ print(sample_dict)
 * * *
 * *
 *
+```
 ```python
 n = 5 #number of max stars
 for i in range(1,2*n):
