@@ -158,6 +158,10 @@ class XorGate(BinaryGate):
         else:
             return 1
 
+class HalfAdder(XorGate, AndGate):
+    def performGateLogic(self):
+        return (AndGate.performGateLogic(self),XorGate.performGateLogic(self))
+
    # TODO
    #  Create a series of gates that prove the following equality: NOT (( A and B) or (C and D)) is that same as NOT( A and B ) and NOT (C and D).
    #  Make sure to use some of your new gates in the simulation.
@@ -181,5 +185,17 @@ def main():
 
    g8 = XorGate("G8")
    print(g8.getOutput())
+# Half Adder output is tuple with sum and carry
+   h1 = HalfAdder("H1")
+   print(h1.getOutput())
 
+# Implemetation of Multiplexor
+   m1 = NotGate("M1")
+   m2 = AndGate("M2")
+   m3 = AndGate("M3")
+   m4 = OrGate("M4")
+   cm1 = Connector(m1,m2)
+   cm2 = Connector(m2,m4)
+   cm3 = Connector(m3,m4)
+   print(m4.getOutput())
 main()
