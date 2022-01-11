@@ -158,28 +158,28 @@ class XorGate(BinaryGate):
         else:
             return 1
 
+   # TODO
+   #  Create a series of gates that prove the following equality: NOT (( A and B) or (C and D)) is that same as NOT( A and B ) and NOT (C and D).
+   #  Make sure to use some of your new gates in the simulation.
 
 def main():
-#    g1 = AndGate("G1")
-#    g2 = AndGate("G2")
-#    g3 = OrGate("G3")
-#    g4 = NotGate("G4")
-#    c1 = Connector(g1,g3)
-#    c2 = Connector(g2,g3)
-#    c3 = Connector(g3,g4)
-#    print(g4.getOutput())
+   g1 = AndGate("G1")
+   g2 = AndGate("G2")
+   g3 = OrGate("G3")
+   g4 = NotGate("G4")
+   c1 = Connector(g1,g3)
+   c2 = Connector(g2,g3)
+   c3 = Connector(g3,g4)
+   print(g4.getOutput())
 
-#    g5 = NandGate("G5")
-#    g6 = NandGate("G6")
-#    g7 = AndGate("G7")
-#    c4 = Connector(g5,g7)
-#    c5 = Connector(g6,g7)
-#    print(g7.getOutput())
+   g5 = NandGate("G5")
+   g6 = NandGate("G6")
+   g7 = AndGate("G7")
+   c4 = Connector(g5,g7)
+   c5 = Connector(g6,g7)
+   print(g7.getOutput())
 
    g8 = XorGate("G8")
    print(g8.getOutput())
 
 main()
-   # TODO
-   #  Create a series of gates that prove the following equality: NOT (( A and B) or (C and D)) is that same as NOT( A and B ) and NOT (C and D).
-   #  Make sure to use some of your new gates in the simulation.
