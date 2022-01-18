@@ -217,4 +217,4 @@ aws ec2 authorize-security-group-ingress \
 ### 4. We edit all route tables in Frankfurt to include the route for the Ireland VPC network(10.1.0.0/16)
 ### 5. Finally edit security groups for both VPC to enable inbound traffic for each network.
 ### 6. Ping test from EC2 instance in Ireland VPC to the the EC2 instance in Frankfurt.
-![Ping](Ping_VPC_peering.png)
+![Ping](Ping_VPC_Peering.png)
