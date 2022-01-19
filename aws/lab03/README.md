@@ -26,7 +26,7 @@ xvdf    202:80   0   8G  0 disk
 [ec2-user@ip-10-0-1-177 ~]$ sudo mount -o nouuid /dev/xvdf1 /home/ec2-user/recovery
 [ec2-user@ip-10-0-1-177 ~]$ cd /home/ec2-user/recovery/home/ec2-user/.ssh/
 [ec2-user@ip-10-0-1-177 .ssh]$ ls -la authorized_keys 
--rw-rw-r-- 1 ec2-user ec2-user 390 Jan 19 10:28 authorized_keys
+-rw------- 1 ec2-user ec2-user 390 Jan 19 10:28 authorized_keys
 ```
 ## 5. Unmount the partition:
 ```bash
@@ -60,7 +60,7 @@ https://aws.amazon.com/amazon-linux-2/
    Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: enabled)
    Active: active (running) since Wed 2022-01-19 11:06:18 UTC; 8min ago
 ```
-## 2. Create a new role that allows EC2 instances to call AWS services. We use AmazonSSMManagedInstanceCore policy.
+## 2. Create a new role that allows EC2 instances with AmazonSSMManagedInstanceCore policy.
 ## 3. On current EC2 instance go to Modify IAM role and add the role we created from previous point.
 ## 4. Go to connect and now we can connect through session manager.
 ```bash
@@ -113,7 +113,7 @@ sudo yum install nginx
     ]
 }
 ```
-## 6. In our EC2 instance instal s3fs:
+## 6. In our EC2 instance install s3fs:
 ```bash
 sudo amazon-linux-extras install epel
 sudo yum install s3fs-fuse
