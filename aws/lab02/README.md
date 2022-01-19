@@ -218,3 +218,10 @@ aws ec2 authorize-security-group-ingress \
 ### 5. Finally edit security groups for both VPC to enable inbound traffic for each network.
 ### 6. Ping test from EC2 instance in Ireland VPC to the the EC2 instance in Frankfurt.
 ![Ping](Ping_VPC_Peering.png)
+
+# Connecting regions and VPC via Transit Gateway
+## 1. Create transit gateway in each region
+## 2. Create peering attachment between both Transit GTways
+## 3. For each gateway create attachment towards the VPC
+## 4. Update the VPC route tables to include the Transit gateway
+## 5. In both Transit gateways route tables add the route for each network going through the peering attachment.
