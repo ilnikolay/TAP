@@ -73,3 +73,67 @@ postgres=> \q
 ![promote](promote.png)
 ## 4. Now we can see that it is not replica anymore,but Instance
 ![promoted](promoted.png)
+
+# Optional task connect to RDS using client software on personal laptop
+## 1. Install the AWS CLI Session Manager plugin
+```bash
+~/Downloads$ session-manager-plugin
+
+The Session Manager plugin was installed successfully. Use the AWS CLI to start a session.
+```
+## 2. Create new Policy and assign to the role which we use for the EC2 instance:
+```JSON
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ssm:StartSession",
+            "Resource": [
+                "arn:aws:ec2:eu-central-1:<account number>:*",
+                "arn:aws:ssm:*:*:document/AWS-StartSSHSession"
+            ]
+        }
+    ]
+}
+```
+## 3. Now we can connect with ssh via session manager:
+```bash
+~/Downloads$ ssh -i TAP_NIK.pem ec2-user@i-076b997a7f74cf9f4
+The authenticity of host 'i-076b997a7f74cf9f4 (<no hostip for proxy command>)' can't be established.
+Last login: Mon Jan 24 19:57:10 2022
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-10-0-4-54 ~]$ 
+```
+## 4. We can make the ssh tunnel
+```bash
+ssh -i TAP_NIK.pem ec2-user@i-076b997a7f74cf9f4 -L 5432:database-tap-nik.cohp5mdd9ipi.eu-central-1.rds.amazonaws.com:5432
+```
+## 5. Now we can run locally psql via the tunnel:
+```bash
+~/Downloads$ psql --username postgres --host 127.0.0.1 --port 5432 --password
+Password: 
+psql (14.1, server 13.5)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+postgres=> \l
+                                  List of databases
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------+----------+----------+-------------+-------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ rdsadmin  | rdsadmin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | rdsadmin=CTc/rdsadmin+
+           |          |          |             |             | rdstopmgr=Tc/rdsadmin
+ template0 | rdsadmin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/rdsadmin          +
+           |          |          |             |             | rdsadmin=CTc/rdsadmin
+ template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+(4 rows)
+
+postgres=> 
+```
