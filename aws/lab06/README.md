@@ -45,7 +45,7 @@ postgres=> \q
 ## 1. Go to snapshot and choose our db instance:
 ![snapshot](snapshot.png)
 ## 2. We coppy our snapshot from Frankfurt region to the Ireland region:
-![cp_snapshot](cp_snapshot.png)
+![cp_snapshot](cp_snap.png)
 ## 3. In Ireland we have vpc and 2 private subnets so we create a subnet group with them:
 ![sg_irl](sg_irl.png)
 ## 4. Now we can restore from our snapshot
