@@ -137,3 +137,98 @@ postgres=> \l
 
 postgres=> 
 ```
+# EC2 with docker listening on port 80
+## 1. Install docker in our ec2 instance from user data:
+```bash
+#!/bin/bash
+sudo yum update
+sudo amazon-linux-extras install -y docker
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+```
+## 2. Create a python listener on port 80:
+```python
+#!/usr/bin/python3
+
+# import the psycopg2 database adapter for PostgreSQL
+from psycopg2 import connect
+import os
+import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import json
+if len(sys.argv) != 5:
+    print("Please set corrent number of arguments")
+else:
+    def conn_stat():
+        # instantiate a cursor object from the connection
+        try:
+
+    # declare a new PostgreSQL connection object
+            conn = connect (
+                dbname = sys.argv[1],
+                user = sys.argv[2],
+                host = sys.argv[3],
+                password = sys.argv[4]
+                )
+
+    # return a dict object of the connection object's DSN parameters
+            dsm_param = conn.get_dsn_parameters()
+            info = json.dumps(dsm_param, indent=4)
+
+            return info
+
+        except Exception as err:
+            return err
+
+    class handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.send_header('Content-type','text/html')
+            self.end_headers()
+
+            message = str(conn_stat()+"\n")
+            self.wfile.write(bytes(message, "utf8"))
+
+    with HTTPServer(('', 80), handler) as server:
+        server.serve_forever()
+```
+## 3. Create a docker file
+```dockerfile
+FROM python:alpine
+
+ENV DB_NAME=$DB_NAME
+ENV DB_USER=$DB_USER
+ENV DB_HOST=$DB_HOST
+ENV DB_PASSWORD=${DB_PASSWORD}
+
+
+RUN pip3 install psycopg2-binary
+
+WORKDIR /listener
+
+COPY dsn.py .
+
+EXPOSE 80
+
+ENTRYPOINT [ "python", "dsn.py" ]
+CMD [ "${DB_NAME}", "${DB_USER}", "${DB_HOST}", "${DB_PASSWORD}" ]
+```
+## 4. We run docker as follow:
+```bash
+[ec2-user@ip-10-0-4-54 rds]$ sudo docker run -dp 80:80 rds $DB_NAME $DB_USER $DB_HOST $DB_PASSWORD
+64f769513feb9bedd5909d631d71e0bf82ceec9bd584491fe03f02459578b7d8
+[ec2-user@ip-10-0-4-54 rds]$ curl localhost
+{
+    "user": "postgres",
+    "dbname": "postgres",
+    "host": "database-tap-nik.cohp5mdd9ipi.eu-central-1.rds.amazonaws.com",
+    "port": "5432",
+    "tty": "",
+    "options": "",
+    "sslmode": "prefer",
+    "sslcompression": "0",
+    "gssencmode": "disable",
+    "krbsrvname": "postgres",
+    "target_session_attrs": "any"
+}
+```
