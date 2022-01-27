@@ -1,0 +1,47 @@
+{
+    "family": "python-app", 
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX"
+    },
+    "networkMode": "awsvpc",
+    "executionRoleArn":"arn:aws:iam::<usr id>:role/tap-nik-ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "python-rds-app", 
+            "image": "<usr id>.dkr.ecr.eu-central-1.amazonaws.com/tap-nik-python:latest", 
+            "portMappings": [
+                {
+                    "containerPort": 80, 
+                    "hostPort": 80, 
+                    "protocol": "tcp"
+                }
+            ],
+            "command": ["postgres", "postgres", "database-tap-nik.cohp5mdd9ipi.eu-central-1.rds.amazonaws.com", "passwd"],
+            "essential": true,
+            "secrets": [
+                {
+                    "name": "DB_NAME",
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:<usr id>:secret:db-tap-nik-gwPgvp:DB_NAME::"
+                },
+                {
+                    "name": "DB_USER",
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:<usr id>:secret:db-tap-nik-gwPgvp:DB_USER::"
+                },
+                {
+                    "name": "DB_HOST",
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:<usr id>:secret:db-tap-nik-gwPgvp:DB_HOST::"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:<usr id>:secret:db-tap-nik-gwPgvp:DB_PASSWORD::"
+                }
+
+            ]
+        }
+    ], 
+    "requiresCompatibilities": [
+        "FARGATE"
+    ], 
+    "cpu": "256", 
+    "memory": "512"
+}
