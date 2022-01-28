@@ -69,3 +69,28 @@ https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarte
 }
 ```
 ## 2. Block public access for your S3 bucket so it can be accessed only via CloudFront.
+
+# Download the S3 content from a private EC2
+## 1. We just need to create new Endpoint with following properties:
+ - Gateway endpoint
+ - service name: com.amazonaws.eu-central-1.s3
+ - subnet where the EC2 instance is
+```bash
+c2-user@ip-10-0-7-14 ~]$ aws s3 cp s3://tap-nik-bucket . --recursive
+download: s3://tap-nik-bucket/404.html to ./404.html
+download: s3://tap-nik-bucket/html/50x.html to html/50x.html
+download: s3://tap-nik-bucket/tap-devops-2021-test2 to ./tap-devops-2021-test2
+download: s3://tap-nik-bucket/tap-devops-2021-test1 to ./tap-devops-2021-test1
+download: s3://tap-nik-bucket/tap-devops-2021-test3 to ./tap-devops-2021-test3
+download: s3://tap-nik-bucket/html/test.html to html/test.html
+download: s3://tap-nik-bucket/50x.html to ./50x.html
+download: s3://tap-nik-bucket/html/404.html to html/404.html
+download: s3://tap-nik-bucket/nginx-logo.png to ./nginx-logo.png
+download: s3://tap-nik-bucket/html/nginx-logo.png to html/nginx-logo.png
+download: s3://tap-nik-bucket/html/icons/poweredby.png to html/icons/poweredby.png
+download: s3://tap-nik-bucket/html/poweredby.png to html/poweredby.png
+download: s3://tap-nik-bucket/poweredby.png to ./poweredby.png
+download: s3://tap-nik-bucket/index.html to ./index.html
+download: s3://tap-nik-bucket/icons/poweredby.png to icons/poweredby.png
+download: s3://tap-nik-bucket/html/index.html to html/index.html
+```

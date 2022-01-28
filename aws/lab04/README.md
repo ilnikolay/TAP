@@ -63,3 +63,23 @@ Configuration validation succeeded
 ## 1. Create AMI from our EC2 instance
 ## 2. Create Launch TEmplate or Launch configuration
 ## 3. Create Auto Scaling Group with the launch configuratin from previous point.
+
+
+# Create CloudWatch alarm when CloudWatch Logs got an 404 error from nginx Send email to your @infinilambda email
+
+## 1. We Create a metric with following filter:
+ - [host, logName, user, timestamp, request, statusCode=404, size]
+ - Metric Value = 1
+ - Unit = Count
+## 2. We create an alarm
+ - Statistic = Sample count
+ - Trigger when metric is Greater/Equal to 1
+ - Create an Amazon SNS topic
+ - Configure Subscribtion with our email
+## 3. This is part of the mail we receive when there is a 404:
+```
+Alarm Details:
+- Name:                       tap-nik-404-alarm
+- Description:                Sends mail when there is a 404 
+- State Change:               OK -> ALARM
+```
