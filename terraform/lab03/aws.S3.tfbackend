@@ -1,0 +1,3 @@
+bucket         = "tap-nik-bucket"
+region         = "eu-central-1"
+dynamodb_table = "tap-nik-locking"
