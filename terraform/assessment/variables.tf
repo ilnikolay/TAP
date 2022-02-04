@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "repo_name" {
-  default = "nik-assessment"
+  default = "nik-tap-a"
 }
 
 variable "common_tag" {

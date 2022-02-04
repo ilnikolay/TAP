@@ -179,7 +179,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_secretsmanager_secret" "this" {
-  name                = "tap-nik-rds"
+  name                = "tap-nik-rds-a"
   description = "For the assessment"
 }
 
