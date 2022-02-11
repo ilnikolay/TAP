@@ -16,7 +16,7 @@
 }
 output {
     elasticsearch {
-        hosts => [ "localhost:9200" ]
+        hosts => [ "10.0.1.164:9200" ]
     }
 }
 ```
