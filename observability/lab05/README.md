@@ -138,5 +138,25 @@ kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes
         - name: FLUENT_ELASTICSEARCH_HOST
           value: "elasticsearch-master.elastic.svc.cluster.local"
 ```
-## 8. We can see our log from fluentbit in Kibana:
+## 8. We can see our logs from fluentbit:
+```bash
+kubectl logs fluent-bit-8cp99 -n logging
+Fluent Bit v1.5.7
+* Copyright (C) 2019-2020 The Fluent Bit Authors
+* Copyright (C) 2015-2018 Treasure Data
+* Fluent Bit is a CNCF sub-project under the umbrella of Fluentd
+* https://fluentbit.io
+
+[2022/02/14 15:32:02] [ info] [engine] started (pid=1)
+[2022/02/14 15:32:02] [ info] [storage] version=1.0.5, initializing...
+[2022/02/14 15:32:02] [ info] [storage] in-memory
+[2022/02/14 15:32:02] [ info] [storage] normal synchronization mode, checksum disabled, max_chunks_up=128
+[2022/02/14 15:32:02] [ info] [filter:kubernetes:kubernetes.0] https=1 host=kubernetes.default.svc port=443
+[2022/02/14 15:32:02] [ info] [filter:kubernetes:kubernetes.0] local POD info OK
+[2022/02/14 15:32:02] [ info] [filter:kubernetes:kubernetes.0] testing connectivity with API server...
+[2022/02/14 15:32:02] [ warn] [filter:kubernetes:kubernetes.0] could not get meta for POD fluent-bit-8cp99
+[2022/02/14 15:32:02] [ info] [http_server] listen iface=0.0.0.0 tcp_port=2020
+[2022/02/14 15:32:02] [ info] [sp] stream processor started
+[2022/02/14 15:32:03] [ info] inotify_fs_add(): inode=2110352 watch_fd=8 name=/var/log/containers/nginx-deployment-8d545c96d-nqtgc_elastic_nginx-6ed00ae0bcacb2526d3fa9942f258c2b813f5d0b49ea7cc2d6314d17ab10639b.log
+```
 ![fluentbit](fluentbit.png)
