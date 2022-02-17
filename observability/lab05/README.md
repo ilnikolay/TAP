@@ -157,6 +157,6 @@ Fluent Bit v1.5.7
 [2022/02/14 15:32:02] [ warn] [filter:kubernetes:kubernetes.0] could not get meta for POD fluent-bit-8cp99
 [2022/02/14 15:32:02] [ info] [http_server] listen iface=0.0.0.0 tcp_port=2020
 [2022/02/14 15:32:02] [ info] [sp] stream processor started
-[2022/02/14 15:32:03] [ info] inotify_fs_add(): inode=2110352 watch_fd=8 name=/var/log/containers/nginx-deployment-8d545c96d-nqtgc_elastic_nginx-6ed00ae0bcacb2526d3fa9942f258c2b813f5d0b49ea7cc2d6314d17ab10639b.log
+[2022/02/14 15:32:03] [ info] inotify_fs_add(): inode=1976151 watch_fd=9 name=/var/log/containers/nginx-deployment-8d545c96d-dh9lg_elastic_nginx-88d2357bea4d9fe043cf81a6ed23f3931c10d69faf7d9ca5372d090396e1ff1e.log
 ```
 ![fluentbit](fluentbit.png)
